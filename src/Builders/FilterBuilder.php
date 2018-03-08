@@ -187,6 +187,12 @@ class FilterBuilder extends Builder
         return $this->engine()->profile($this);
     }
 
+    public function count()
+    {
+        $result = $this->engine()->search($this);
+        return (int) $this->engine()->getTotalCount($result);
+    }
+
     public function buildPayload()
     {
         return $this->engine()->buildSearchQueryPayloadCollection($this);
